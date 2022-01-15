@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>《unity》的学习</title>
-    <url>/2022/01/12/%E3%80%8Aunity%E3%80%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>unity的使用</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2022/01/12/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -22,6 +16,15 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>《unity》的学习</title>
+    <url>/2022/01/12/%E3%80%8Aunity%E3%80%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>unity的使用<br>一.输出以及如何给物体施加力<br>  控制台的输出：Debug.Log(“”);</p>
+<p>  给物体施加力的作用:<br>  1.先给物体添加刚体组件（获得重力等）<br>  2.编写脚本使指向刚体组件<br>    rd = GetComponent<Rigidbody>();<br>  3.向哪个方向施加多少大小的力（向量的形式）<br>    rd.AddForce(Vector3.right);//此时为向右施加1N的力<br>  4.其他大小的力<br>    rd.AddForce(new Vector3(2, 0, 0));//沿x轴方向施加2N的力</p>
+<p>二.通过按键使物体移动<br>  1.获得键盘的左右方向键<br>    float h = Input.GetAxis(“Horizontal”);//按下A返回值-1，按下D返回值1；<br>    获得键盘的上下方向键<br>    float v = Input.GetAxis(“Vertical”);//按下S返回值-1,按下W返回值1；<br>  2.通过方向按键给物体施加对应方向的恒力<br>    rd.AddForce(new Vector3(h, 0, 0) * 2 );//根据A和D给物体向右或者向左的恒力使物体运动<br>    rd.AddForce(new Vector3(0, 0, v) * 2 );//根据S和W给物体向后或者向前的恒力使物体运动</p>
+<p>三.碰撞检测<br>  1.先给被碰撞的物体添加一个统一的标签 如：tag<br>  2.通过碰撞发生的代码进行条件判断<br>      private void OnCollisionEnter(Collision collision)//发生碰撞时进行计数并进行碰撞后的代码<br>    {<br>        if (collision.gameObject.tag == “Food” || collision.gameObject.name == “Wall”)//条件判断碰撞到的物体的tag是否为”Food”或者游戏物体的名字是否为”Wall”<br>        {<br>            Destroy(collision.gameObject);//Destory方法：销毁碰撞到的游戏物体<br>        }<br>    }</p>
 ]]></content>
   </entry>
 </search>

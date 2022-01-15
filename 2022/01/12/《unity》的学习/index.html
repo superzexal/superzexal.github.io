@@ -10,18 +10,18 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="unity的使用
-"> 
+    <meta name="description" content="unity的使用一.输出以及如何给物体施加力  控制台的输出：Debug.Log(“”);
+  给物体施加力的作用:  1.先给物体添加刚体组件（获得重力等）  2.编写脚本使指向刚体组件    r,"> 
     <meta name="author" content="superzexal"> 
-    <link rel="alternative" href="atom.xml" title="hexo" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="alternative" href="/atom.xml" title="hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.ico"> 
     
     
     
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content="《unity》的学习 - hexo"/>
-    <meta name="twitter:description" content="unity的使用
-"/>
+    <meta name="twitter:description" content="unity的使用一.输出以及如何给物体施加力  控制台的输出：Debug.Log(“”);
+  给物体施加力的作用:  1.先给物体添加刚体组件（获得重力等）  2.编写脚本使指向刚体组件    r,"/>
     
     
     
@@ -29,8 +29,8 @@
     <meta property="og:site_name" content="hexo"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content="《unity》的学习 - hexo"/>
-    <meta property="og:description" content="unity的使用
-"/>
+    <meta property="og:description" content="unity的使用一.输出以及如何给物体施加力  控制台的输出：Debug.Log(“”);
+  给物体施加力的作用:  1.先给物体添加刚体组件（获得重力等）  2.编写脚本使指向刚体组件    r,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -66,7 +66,10 @@
 
         </div>
         <div class="content markdown">
-            <p>unity的使用</p>
+            <p>unity的使用<br>一.输出以及如何给物体施加力<br>  控制台的输出：Debug.Log(“”);</p>
+<p>  给物体施加力的作用:<br>  1.先给物体添加刚体组件（获得重力等）<br>  2.编写脚本使指向刚体组件<br>    rd = GetComponent<Rigidbody>();<br>  3.向哪个方向施加多少大小的力（向量的形式）<br>    rd.AddForce(Vector3.right);//此时为向右施加1N的力<br>  4.其他大小的力<br>    rd.AddForce(new Vector3(2, 0, 0));//沿x轴方向施加2N的力</p>
+<p>二.通过按键使物体移动<br>  1.获得键盘的左右方向键<br>    float h = Input.GetAxis(“Horizontal”);//按下A返回值-1，按下D返回值1；<br>    获得键盘的上下方向键<br>    float v = Input.GetAxis(“Vertical”);//按下S返回值-1,按下W返回值1；<br>  2.通过方向按键给物体施加对应方向的恒力<br>    rd.AddForce(new Vector3(h, 0, 0) * 2 );//根据A和D给物体向右或者向左的恒力使物体运动<br>    rd.AddForce(new Vector3(0, 0, v) * 2 );//根据S和W给物体向后或者向前的恒力使物体运动</p>
+<p>三.碰撞检测<br>  1.先给被碰撞的物体添加一个统一的标签 如：tag<br>  2.通过碰撞发生的代码进行条件判断<br>      private void OnCollisionEnter(Collision collision)//发生碰撞时进行计数并进行碰撞后的代码<br>    {<br>        if (collision.gameObject.tag == “Food” || collision.gameObject.name == “Wall”)//条件判断碰撞到的物体的tag是否为”Food”或者游戏物体的名字是否为”Wall”<br>        {<br>            Destroy(collision.gameObject);//Destory方法：销毁碰撞到的游戏物体<br>        }<br>    }</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
